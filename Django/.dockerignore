@@ -1,0 +1,7 @@
+./Django-venv
+./db.sqlite3
+./tests
+./assets/data
+./assets/clusterings
+./*.log
+

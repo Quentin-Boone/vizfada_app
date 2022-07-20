@@ -1,0 +1,26 @@
+iframe {
+  min-width: 500px;
+  min-height: 500px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+bi.download-icon {
+  color: white;
+}
+
+a {
+  color: inherit;
+}
+
+td.td-file-name {
+  padding-left: 10px;
+}
+
+.non-selected-file {
+  cursor: pointer;
+}
+
+.selected-file {
+  font-style: italic;
+}

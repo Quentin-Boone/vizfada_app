@@ -1,0 +1,15 @@
+<div class="legend-container"
+     *ngIf="legend; else elseTemplate"
+     fxLayout="row wrap"
+     fxLayoutAlign="start center">
+  <div class="item" *ngFor="let d of legend | keyvalue"
+       fxLayout="row"
+       fxFlex="1 1 200px"
+       fxLayoutAlign="start center">
+    <div fxFlex="0 0 20px" class="color" style="background-color: {{ d.value }}"></div>
+    <div class="legend"><p [class.selected]="d.value === selectedColor">{{ d.key }}</p></div>
+  </div>
+</div>
+<ng-template #elseTemplate>
+<p>No legend</p>
+</ng-template>

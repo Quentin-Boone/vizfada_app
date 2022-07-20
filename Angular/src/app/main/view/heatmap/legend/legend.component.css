@@ -1,0 +1,31 @@
+.selected {
+  background-color: #DCEDF5;
+  font-weight: bold;
+}
+
+.color {
+  width: 20px;
+  height: 20px;
+}
+
+.item {
+  margin: 2px;
+  align-items: baseline;
+}
+
+.legend {
+  margin-left: 5px;
+}
+
+.legend-container {
+  padding: 5px;
+  border: solid;
+  border-radius: 5px;
+  border-color: #DCEDF5;
+  border-width: thin;
+  overflow: auto;
+}
+
+p {
+  margin-bottom: 0px;
+}

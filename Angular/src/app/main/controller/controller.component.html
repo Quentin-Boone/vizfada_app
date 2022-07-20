@@ -1,0 +1,129 @@
+<div class="control-container">
+<form [formGroup]="formGroup" novalidate (ngSubmit)=onSubmit()
+      fxLayout="column" fxLayoutAlign="space-between stretch">
+  <ngb-accordion #acc="ngbAccordion" name="form" activeIds="ngb-panel-0, ngb-panel-1, ngb-panel-2">
+    <ngb-panel>
+    <ng-template ngbPanelHeader let-opened="opened">
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <h5 ngbPanelToggle class="panel-title">Species</h5>
+        <button ngbPanelToggle class="btn">
+          <bi [name]="opened ? 'chevron-down' : 'chevron-up'"></bi>
+        </button>
+      </div>
+    </ng-template>
+      <ng-template ngbPanelContent fxlayout="column" fxLayoutAlign="start center">
+        <div fxlayout="row" fxLayoutAlign="space-evenly center">
+        <select id="species"
+            formControlname="species"
+            class="form-control"
+            (change)="changeSpecies($event)"
+            fxFlex="50%">
+          <option value="">-- choose species --</option>
+          <option *ngFor="let sp of SPECIES" [ngValue]="sp" [value]="sp">{{sp | betterNames}}</option>
+        </select>
+        <select id="experiment"
+            formControlname="experiment"
+            class="form-control"
+            (change)="changeExperiment($event)"
+            [disabled]="!speciesIsSet"
+            fxFlex="50%">
+          <option value="">-- choose experiment --</option>
+          <option *ngFor="let exp of EXPERIMENTS" [ngValue]="exp">{{exp}}</option>
+        </select>
+        </div>
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" id="customSwitches" (change)="changePlotlyBool($event)">
+          <label class="custom-control-label" for="customSwitches">Use Plotly</label>
+        </div>
+        <!--
+        <div>
+          <label id="lbl">Upload File </label>
+          <input type='file' name="USER_FILE" (change)="fileChanged($event)">
+        </div>
+        -->
+      </ng-template>
+    </ngb-panel>
+
+    <ngb-panel>
+      <ng-template ngbPanelHeader let-opened="opened">
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <h5 ngbPanelToggle class="panel-title">Filters</h5>
+          <button ngbPanelToggle class="btn">
+            <bi [name]="opened ? 'chevron-down' : 'chevron-up'"></bi>
+          </button>
+        </div>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <div formArrayName="filters">
+          <div class="fhl" fxLayout="row" fxLayoutAlign="center stretch" *ngFor="let control of formFilters.controls; let i = index">
+            <app-filter fxFlex="fill" [formGroup] = "formGroup.controls.filters.controls[i]" [fullFormGroup] = "formGroup"></app-filter>
+            <button type="button" (click)="delFromArray('filters', i)" class="btn btn-outline-danger btn-delete">
+              <bi name="trash-fill" class="trash-icon"></bi>
+            </button>
+          </div>
+        </div>
+      
+        <div formArrayName="highlights">
+          <div class="fhl" fxLayout="row" fxLayoutAlign="center stretch" *ngFor="let control of formHighlights.controls; let i = index">
+            <app-highlight fxFlex="fill" [formGroup] = "formGroup.controls.highlights.controls[i]"></app-highlight>
+             <button type="button" (click)="delFromArray('highlights', i)" class="btn btn-outline-danger btn-delete">
+               <bi name="trash-fill" class="trash-icon"></bi>
+             </button>
+          </div>
+          <button type="button" class="btn btn-outline-success btn-add-fhl" (click)="addFilter()" [ngClass]="{'disabled': (speciesIsSet===false || experimentIsSet===false)}">
+            <bi name="funnel-fill" class="funnel-icon"></bi> Add Filter
+          </button>
+          <button type="button" class="btn btn-outline-success btn-add-fhl"
+                  (click)="addHighlight()"
+                  [ngClass]="{'disabled': (!speciesIsSet || !experimentIsSet || plotlyChecked)}">
+                  <bi name="palette-fill" class="highlight-icon"></bi> Add Highlight
+          </button>
+        </div>
+      </ng-template>
+    </ngb-panel>
+
+    <ngb-panel>
+      <ng-template ngbPanelHeader let-opened="opened">
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <h5 ngbPanelToggle class="panel-title">Annotation</h5>
+          <button ngbPanelToggle class="btn">
+            <bi [name]="opened ? 'chevron-down' : 'chevron-up'"></bi>
+          </button>
+        </div>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <label for="annotated">Annotate : </label>
+          <select class="form-control" id="annotated" formControlname="annotated" (change)="changeAnnotation($event)">
+            <option value="">-- choose field --</option>
+            <option *ngFor="let f of testFields | keyvalue" [value]="f.key">{{f.value["name"]}} ({{f.value['count']}})</option>
+          </select>
+          <app-legend *ngIf="formGroup.controls['annotated'] != ''"></app-legend>
+      </ng-template>
+    </ngb-panel>
+
+    <!---
+    <ngb-panel>
+      <ng-template ngbPanelHeader let-opened="opened">
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <h5 ngbPanelToggle class="panel-title">Graph options</h5>
+          <button ngbPanelToggle class="btn">
+            <bi [name]="opened ? 'chevron-down' : 'chevron-up'"></bi>
+          </button>
+        </div>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <!----
+        <label for="size">Size : </label>
+          <select class="form-control" id="size" formControlname="options" (change)="changeSize($event)">
+            <option value="">-- choose size --</option>
+            <option *ngFor="let sz of SIZES" [ngValue]="sz">{{sz}}</option>
+          </select>
+        -/->
+      </ng-template>
+    </ngb-panel>
+    -->
+
+  </ngb-accordion>
+  <button class="btn btn-success" fxFlexAlign="end" type="submit" [ngClass]="{'disabled': (speciesIsSet===false || experimentIsSet===false)}">Submit</button>
+</form>
+</div>

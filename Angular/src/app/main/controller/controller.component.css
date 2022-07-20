@@ -1,0 +1,67 @@
+.fhl {
+  border-radius: 5px;
+  border: solid;
+  border-width: thin;
+  border-color: #dcedf5;
+  padding: 5px;
+  overflow: visible;
+  margin-bottom: 5px
+}
+
+button.disabled {
+  pointer-events: none;
+}
+
+.btn-add-fhl {
+  margin-left: 5px;
+}
+
+.trash-icon {
+}
+
+.funnel-icon {
+  margin-left: -2px;
+}
+
+.btn-delete {
+  padding-left: 2px;
+  padding-right: 2px;
+  margin-left: 5px;
+}
+
+control-container {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+div.disabledPanel {
+  background-color: #e9ecef;
+  color: #696b6d;
+}
+
+form {
+  margin: 5px;
+  height: 100%;
+}
+
+::ng-deep .card-header {
+  background-color: #dcedf5;
+  color: #577c95;
+}
+
+::ng-deep #ngb-panel-2-header.card-header.disabledPanel{
+  background-color: #e9ecef;
+  color: #696b6d;
+}
+
+::ng-deep .card[disabled="true"] > ::ng-deep .card-header {
+  background-color: #e9ecef;
+  color: #717a80;
+}
+
+::ng-deep .card-body {
+}
+
+::ng-deep .accordion>.card {
+  overflow: visible;
+}

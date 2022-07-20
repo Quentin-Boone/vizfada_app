@@ -1,0 +1,149 @@
+{ "ERX1534662": {
+        "fileName": {
+            "filename": "",
+            "url": "ftp://ftp.faang.ebi.ac.uk/ftp/protocols/assays/UCD_SOP_RNA-Seq_Library_Prep_20150510.pdf"
+        },
+        "extractionProtocol": {
+            "filename": "UCD_SOP_RNA-Seq_Library_Prep_20150510.pdf",
+            "url": "ftp://ftp.faang.ebi.ac.uk/ftp/protocols/assays/UCD_SOP_RNA-Seq_Library_Prep_20150510.pdf"
+        },
+        "files": [
+            {
+                "text": "ERR1464185_1",
+                "url": "ftp.sra.ebi.ac.uk/vol1/fastq/ERR146/005/ERR1464185/ERR1464185_1.fastq.gz"
+            },
+            {
+                "text": "ERR1464185_2",
+                "url": "ftp.sra.ebi.ac.uk/vol1/fastq/ERR146/005/ERR1464185/ERR1464185_2.fastq.gz"
+            }
+        ],
+        "libraryPreparationDate": {
+            "text": "2015-05-10",
+            "unit": "YYYY-MM-DD"
+        },
+        "libraryPreparationLocation": "UC Davis, Ross Lab",
+        "material": {
+            "text": "specimen from organism",
+            "ontologyTerms": "http://purl.obolibrary.org/obo/OBI_0001479"
+        },
+        "organism_spec": {
+            "breed": {
+                "text": "White Leghorn line 6x White Leghorn line 7",
+                "ontologyTerms": "http://purl.obolibrary.org/obo/LBO_0001037"
+            },
+            "healthStatus": [
+                {
+                    "text": "normal",
+                    "ontologyTerms": "http://purl.obolibrary.org/obo/PATO_0000461"
+                }
+            ],
+            "organism": {
+                "text": "Gallus gallus",
+                "ontologyTerms": "http://purl.obolibrary.org/obo/NCBITaxon_9031"
+            },
+            "sex": {
+                "text": "male",
+                "ontologyTerms": "http://purl.obolibrary.org/obo/PATO_0000384"
+            },
+            "biosampleId": "SAMEA4454569"
+        },
+        "organization": [
+            {
+                "name": "USDA-ARS, Avian Disease and Oncology Laboratory",
+                "role": "material supplier role ",
+                "URL": "http://www.ars.usda.gov/main/site_main.htm?modecode=50-50-10-00"
+            }
+        ],
+        "paperPublished": "true",
+        "project": "",
+        "publishedArticles": [
+            {
+                "journal": "BMC Genomics",
+                "title": "A comparative analysis of chromatin accessibility in cattle, pig, and mouse tissues.",
+                "year": "2020",
+                "articleId": "PMC7541309"
+            },
+            {
+                "journal": "BMC Genomics",
+                "title": "Genome-wide identification of tissue-specific long non-coding RNA in three farm animal species.",
+                "year": "2018",
+                "articleId": "PMC6145346"
+            },
+            {
+                "journal": "Sci Rep",
+                "title": "Systematic alteration of ATAC-seq for profiling open chromatin in cryopreserved nuclei preparations from livestock tissues.",
+                "year": "2020",
+                "articleId": "PMC7089989"
+            }
+        ],
+        "releaseDate": "2016-08-07",
+        "RNA-seq": {
+            "preparationReverseTranscriptionProtocol": {
+                "filename": "UCD_SOP_RNA-Seq_Library_Prep_20150510.pdf",
+                "url": "ftp://ftp.faang.ebi.ac.uk/ftp/protocols/assays/UCD_SOP_RNA-Seq_Library_Prep_20150510.pdf"
+            },
+            "rnaPreparation3AdapterLigationProtocol": {
+                "filename": "UCD_SOP_RNA-Seq_Library_Prep_20150510.pdf",
+                "url": "ftp://ftp.faang.ebi.ac.uk/ftp/protocols/assays/UCD_SOP_RNA-Seq_Library_Prep_20150510.pdf"
+            },
+            "rnaPreparation5AdapterLigationProtocol": {
+                "filename": "UCD_SOP_RNA-Seq_Library_Prep_20150510.pdf",
+                "url": "ftp://ftp.faang.ebi.ac.uk/ftp/protocols/assays/UCD_SOP_RNA-Seq_Library_Prep_20150510.pdf"
+            },
+            "rnaIntegrityNumber": "",
+            "rnaPurity260280ratio": "",
+            "rnaPurity260230ratio": "",
+            "libraryGenerationProtocol": {
+                "filename": "UCD_SOP_RNA-Seq_Library_Prep_20150510.pdf",
+                "url": "ftp://ftp.faang.ebi.ac.uk/ftp/protocols/assays/UCD_SOP_RNA-Seq_Library_Prep_20150510.pdf"
+            },
+            "readStrand": "mate 2 sense",
+            "libraryGenerationPcrProductIsolationProtocol": {
+                "filename": "UCD_SOP_RNA-Seq_Library_Prep_20150510.pdf",
+                "url": "ftp://ftp.faang.ebi.ac.uk/ftp/protocols/assays/UCD_SOP_RNA-Seq_Library_Prep_20150510.pdf"
+            }
+        },
+        "runs": [
+            "ERR1464185"
+        ],
+        "sampleStorage": "frozen, -70 freezer",
+        "sampleStorageProcessing": "cryopreservation in liquid nitrogen (dead tissue)",
+        "samplingToPreparationInterval": {
+            "text": "16.0",
+            "unit": "weeks"
+        },
+        "secondaryProject_exp": "",
+        "sequencingDate": {
+            "text": "2015-05-11",
+            "unit": "YYYY-MM-DD"
+        },
+        "sequencingLocation": "UC Davis Sequencing Center",
+        "species": {
+            "text": "Gallus gallus",
+            "ontologyTerms": "http://purl.obolibrary.org/obo/NCBITaxon_9031"
+        },
+        "study": {
+            "accession": "PRJEB14330",
+            "alias": "ena-STUDY-UC DAVIS-07-06-2016-18:34:56:918-275",
+            "secondaryAccession": "ERP015966",
+            "title": "Genome-wide Functional Annotation of Regulatory Elements in Livestock Species",
+            "type": null
+        },
+        "submission": "ERA653275",
+        "updateDate": "2018-11-16",
+        "accession": "ERX1534662",
+        "assayType": "transcription profiling by high throughput sequencing",
+        "biosampleId": "SAMEA4454500",
+        "cellSpecimen": null,
+        "cellType": {
+            "text": "adipose tissue",
+            "ontologyTerms": "UBERON_0001013"
+        },
+        "experiment": {
+            "accession": "ERX1534662",
+            "target": "polyA RNA",
+            "assayType": "transcription profiling by high throughput sequencing",
+            "standardMet": "FAANG"
+        },
+        "poolOfSpecimens": null
+    }

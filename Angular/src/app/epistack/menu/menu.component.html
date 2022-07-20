@@ -1,0 +1,25 @@
+<form [formGroup]="formGroup" novalidate>
+  <div class="step1">
+    <p>1 - choose a species</p>
+    <select id="species" formControlname="species" class="form-control" (change)="patchValue('species', $event)">
+      <option value="">-- choose species--</option>
+      <option *ngFor="let sp of SPECIES" [ngValue]="sp" [value]="sp">{{sp | betterNames}}</option>
+    </select>
+  </div>
+  <div class="step2">
+    <ng-template [ngIf]="(FIELDS!==undefined)">
+      <p>2 - filter experiments</p>
+      <div *ngFor="let field of DEFAULT_FIELDS | keyvalue: sortNull">
+        <label>{{field.value}} ({{FIELDS | get: field.key | get: 'count'}})</label>
+      <select [id]="field.key"
+              [formControlname]="field.key"
+              class="form-control"
+              (change)="patchValue(field.key, $event)">
+        <option *ngFor="let f of FIELDS | get: field.key | get: 'values' | keyvalue"
+                [value]="f.key"
+                [selected]="isSelected(field.key, f.key)">{{f.key}} ({{f.value}})</option>
+      </select>
+      </div>
+    </ng-template>
+  </div>
+</form>

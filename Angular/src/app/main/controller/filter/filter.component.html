@@ -1,0 +1,29 @@
+<div fxLayout="column">
+  <form [formGroup]="formGroup" novalidate>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <label for="field">Field : </label>
+      <ng-multiselect-dropdown
+        fxFlex
+        fxFlexOffset="1"
+        [data]="formatted_fields"
+        [settings]="fieldDropdownSettings"
+        [placeholder]="'Choose field'"
+        (onSelect)="getValues($event)"
+        (onDeSelect)="onDeselectField($event)"
+      ></ng-multiselect-dropdown>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <label for="values">Values : </label>
+      <ng-multiselect-dropdown
+        fxFlex
+        fxFlexOffset="1"
+        [data]="formatted_values"
+        [(ngModel)]="selectedFormatted"
+        [settings]="valuesDropdownSettings"
+        [placeholder]="'Choose values'"
+        (onSelect)="onSelectValue($event)"
+        (onDeSelect)="onDeSelectValue($event)"
+      ></ng-multiselect-dropdown>
+    </div>
+  </form>
+</div>

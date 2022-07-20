@@ -1,0 +1,72 @@
+<div class="top-container" fxLayout="row" fxLayoutAlign="space-between stretch" >
+  <div class="datatable-container outer" fxFlex>
+    <div class="datatable-container inner">
+      <ngx-datatable class="bootstrap" 
+        [rows]="data" 
+        [columns]="datacols"
+        [reorderable]="true"
+        (cdkObserveContent)="adjustColumnMinWidth()">
+      </ngx-datatable>
+    </div>
+  </div>
+  <div class="selected-column" fxFlex="noshrink">
+    <h4>Available Columns</h4>
+    <ul>
+      <li *ngFor="let col of allColumns">
+        <input type="checkbox" [id]="col.name" (change)="toggle(col)" [checked]="isChecked(col)"/>
+        <label [attr.for]="col.name">{{ col.name }}</label>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<ng-template #headerTemplate let-column="column"> 
+  <div fxLayout="column"><span>{{ column.name }}</span>
+    <input
+    type="text"
+    placeholder="Filter"
+    (keyup)="updateFilter($event, column.name)"
+  /></div>
+</ng-template>
+
+<ng-template #cellTemplate let-row="row" let-column="column">
+  <div *ngFor="let item of row[column.name]">
+    <ng-template *ngTemplateOutlet="isString(item) ? stringTemplate : objectTemplate; context: {item: item, column: column.name}">
+    </ng-template>
+  </div>
+</ng-template>
+
+<ng-template #stringTemplate let-item="item" let-column="column">
+  <div *ngIf="column === 'Accession'; else elseTemplate"><a href="{{'/experiment/' + item}}">{{ item }}</a></div>
+  <ng-template #elseTemplate><span>{{ item }}</span></ng-template>
+</ng-template>
+
+<ng-template #objectTemplate let-item="item">
+  <a *ngIf="'text' in objectKeys(item) && 'url' in objectKeys(item)" href={{item.url}}>{{ item.text }}</a>
+  <span *ngFor="let key of objectKeys(filterTextUrl(item))"><b>{{ key }}: </b> {{ item[key] }}</span>
+</ng-template>
+
+<!--
+
+
+
+<table datatable class="row-border-hover">
+  <thead>
+    <tr>
+      <th *ngFor="let col of selectedCols">
+        {{col}}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of data">
+      <td *ngFor="let col of selectedCols">
+        <div *ngFor="let item of row[col]">
+          <ng-template *ngTemplateOutlet="isString(item) ? stringTemplate : objectTemplate; context: {item: item}">
+          </ng-template>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+-->

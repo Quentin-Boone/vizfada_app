@@ -1,0 +1,10 @@
+<div fxLayout="column" fxLayoutAlign="start center">
+  <h3><a [href]="'/experiment/' + selected">{{selected}}</a></h3>
+  <ngb-carousel *ngIf="images" (slide)="onSlide($event)">
+    <ng-template ngbSlide *ngFor="let image of images" [id]="getExp(image)">
+      <div class="picsum-img-wrapper">
+        <img [src]="image" alt="epistack image">
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div>

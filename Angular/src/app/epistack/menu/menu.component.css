@@ -1,0 +1,18 @@
+div.step1 {
+    border-radius: 10px;
+    background-color: aliceblue;
+    margin: 10px 5px auto 5px;
+    padding: 5px;
+}
+
+div.step2 {
+    border-radius: 10px;
+    background-color: aliceblue;
+    margin: 10px 5px auto 5px;
+    padding: 5px;
+}
+
+p {
+    font-weight: bold;
+    margin-top: 5px;
+}

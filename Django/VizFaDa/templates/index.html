@@ -1,0 +1,13 @@
+<h1>Available data</h1>
+
+{% if avail %}
+  <table>
+    {% for species in avail %}
+      <tr>
+        <td> {{ species }} </td>
+        <td><a href="{% url 'data:table' species 'metadata' %}">metadata</a></td>
+        <td><a href="{% url 'data:table' species 'correlation' %}">correlation</a></td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endif %}

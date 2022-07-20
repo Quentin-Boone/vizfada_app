@@ -1,0 +1,24 @@
+label {
+    margin-left:5px;
+}
+
+div.selected-column {
+    max-height: 600px;
+}
+
+div.datatable-container.outer {
+    scroll-behavior: smooth;
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: 600px;
+    max-width: 700px;
+    min-width: 500px;
+}
+
+div.datatable-container.inner {
+    width:fit-content;
+}
+
+div.selected-column {
+    overflow-y: auto;
+}

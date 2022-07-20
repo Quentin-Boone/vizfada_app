@@ -1,0 +1,36 @@
+<h1>Experiment {{id}}</h1>
+
+<h3>Files</h3>
+<div fxLayout="row" fxLayoutAlign="stretch start">
+  <table fxFlex="35">
+    <tbody>
+    <ng-container *ngFor="let file of tree; let i = index">
+        <ng-container *ngTemplateOutlet="file.type === 'file' ? fileTemplate : folderTemplate; context: { content: file, depth: 0, pindex: i, index: 0 }"></ng-container>
+    </ng-container>
+    </tbody>
+  </table>
+  <iframe [src]="selectedFile.url | safe: 'resourceUrl'" fxFlex="65"></iframe>
+</div>
+
+<ng-template #folderTemplate let-folder="content" let-depth="depth" let-pindex="pindex" let-index="index">
+    <tr class="collapseRow{{pindex}}">
+    <td [ngStyle]="{'padding-left': offset(depth)}" >
+      <bi name="{{ folder.expanded ? 'folder-2-open' : 'folder-2' }}" type="button"
+                      (click)="folder.expanded = !folder.expanded"></bi> <b>{{folder.name}}</b></td>
+    </tr>
+    <ng-container *ngIf="folder.expanded">
+      <ng-container *ngFor="let f of folder.content">
+        <ng-container *ngTemplateOutlet="f.type === 'file' ? fileTemplate : folderTemplate; context: {content: f, depth: depth+1, pindex: '' + pindex + index, index: '' + cindex + pindex}">
+        </ng-container>
+      </ng-container>
+    </ng-container>
+</ng-template>
+
+<ng-template #fileTemplate let-file="content" let-depth="depth" let-pindex="pindex" let-index="index">
+  <tr class="collapseRow{{pindex}}">
+    <td [ngStyle]="{'padding-left': offset(depth)}" class="td-file-name"><a [ngClass]="{'selected-file': file==selectedFile, 'non-selected-file': file!=selectedFile}" (click)=selectFile(file)>{{file.name}}</a></td>
+    <td>{{file.size | filesize}}</td>
+    <td>{{file.mtime | date: 'short'}}</td>
+    <td><button type="button" class="btn btn-secondary"><a href={{file.download}}><bi name="download" class="download-icon"></bi></a></button>
+  </tr>
+</ng-template>

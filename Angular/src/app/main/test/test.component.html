@@ -1,0 +1,8 @@
+<div class="Block">
+    <label id="lbl">Upload File </label>
+    <input type='file' (change)="fileChanged($event)" name="USER_FILE">
+    <button class="btn btn-success" (click)="onSubmit()" [ngClass]="{'disabled': (loading || file === undefined)}">Submit</button>
+    <div class="spinner-border text-info" role="status" [hidden]="!loading">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>

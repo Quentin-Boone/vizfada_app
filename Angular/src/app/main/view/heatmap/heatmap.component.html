@@ -1,0 +1,17 @@
+<app-canvas [hidden]="plotlyBool"></app-canvas>
+<app-plotly [hidden]="!plotlyBool || plotly === undefined || plotly.allData == []"></app-plotly>
+
+<ng-container *ngIf="!imgLoading; else elseTemplate">
+  <div *ngIf="src == no_heatmap">
+    <p> No heatmap </p>
+  </div>
+
+</ng-container>
+<ng-template #elseTemplate>
+  <ngx-spinner bdColor = "rgba(51,51,51,0.8)"
+               size = "medium"
+               color = "#ffffff"
+               type = "ball-newton-cradle"
+               [fullScreen] = "false">
+    <p style="color: white" > Loading... </p></ngx-spinner>
+</ng-template>

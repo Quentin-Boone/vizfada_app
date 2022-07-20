@@ -1,0 +1,34 @@
+<form [formGroup]="formGroup" novalidate>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <label fxFlex="15" for="field">Color : </label>
+      <input
+        fxFlex
+        fxFlexOffset = "5"
+        [style.background]="color"
+        [colorPicker]="color"
+        (colorPickerChange)="onChangeColor($event)"/>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <label for="field">Field : </label>
+      <ng-multiselect-dropdown
+        fxFlex
+        fxFlexOffset = "1"
+        [settings]="fieldDropdownSettings"
+        [placeholder]= "'Choose field'"
+        [data]="formatted_fields"
+        (onSelect) = "getValues($event)"
+      ></ng-multiselect-dropdown>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <label for="values">Values : </label>
+      <ng-multiselect-dropdown
+        fxFlex
+        fxFlexOffset = "1"
+        [settings]="valuesDropdownSettings"
+        [placeholder]="'Choose values'"
+        [data]="formatted_values"
+        (onSelect) = "onSelectValue($event)"
+        (onDeSelect) = "onDeSelectValue($event)"
+      ></ng-multiselect-dropdown>
+    </div>
+  </form>

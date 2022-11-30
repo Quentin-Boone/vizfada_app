@@ -4,8 +4,8 @@ VizFaDa, for visualisation of FAANG data, aims at adding data visualisations to 
 
 ## Requirements
 
-* Docker version 19.03
-* docker-compose version 1.27
+* Docker version > 19.03
+* docker-compose version > 1.27
 
 ## Installation
 

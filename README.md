@@ -14,8 +14,7 @@ Clone the repository, then, build the docker image (docker commands might asks f
 docker build Angular -t username/vizfada_ng
 docker build Django  -t username/vizfada_dj
 ```
-
-And run the built images using:
+List your local images using `docker images`, and run the built images using:
 
 ```bash
 docker run -dp 8080:8080 username/vizfada_ng

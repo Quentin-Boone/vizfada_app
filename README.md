@@ -11,15 +11,15 @@ VizFaDa, for visualisation of FAANG data, aims at adding data visualisations to 
 Clone the repository, then, build the docker image (docker commands might asks for `sudo` permissions):
 
 ```bash
-docker build Angular -t username\vizfada_ng
-docker build Django  -t username\vizfada_dj
+docker build Angular -t username/vizfada_ng
+docker build Django  -t username/vizfada_dj
 ```
 
 And run the built images using:
 
 ```bash
-docker run -dp 8080:8080 username\vizfada_ng
-docker run -dp 4200:4200 username\vizfada_dj
+docker run -dp 8080:8080 username/vizfada_ng
+docker run -dp 4200:4200 username/vizfada_dj
 ```
 
 You can access the back-end and the front-end separately on your browser through your local host (127.0.0.1) :

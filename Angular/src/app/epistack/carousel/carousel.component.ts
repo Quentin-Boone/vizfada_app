@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
@@ -8,7 +8,8 @@ import { EpistackService } from '../epistack.service';
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css'],
-  providers: [NgbCarouselConfig]
+  providers: [NgbCarouselConfig],
+  encapsulation: ViewEncapsulation.None
 })
 export class CarouselComponent implements OnInit {
   
@@ -41,3 +42,6 @@ export class CarouselComponent implements OnInit {
   }
 
 }
+
+
+
